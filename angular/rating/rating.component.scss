@@ -1,0 +1,44 @@
+.rating {
+  display: flex;
+  align-items: center;
+  li {
+    padding-right: 4px;
+    &:last-of-type {
+      padding-right: 0;
+    }
+    .icon-rate {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      background-image: url('../../../../../../assets/img/main/ic-rate-default.png');
+      -webkit-background-size: cover;
+      background-size: cover;
+      &.big {
+        width: 30px;
+        height: 30px;
+        &,
+        &.disabled {
+          background-image: url('../../../../../../assets/img/main/ic-rate-disabled-30x30.png');
+        }
+        &.active {
+          background-image: url('../../../../../../assets/img/main/ic-rate-active-30x30.png');
+        }
+        &.half {
+          background-image: url('../../../../../../assets/img/main/ic-rate-half-30x30.png');
+        }
+      }
+      &.active {
+        background-image: url('../../../../../../assets/img/main/ic-rate-active.png');
+      }
+      &.disabled {
+        background-image: url('../../../../../../assets/img/main/ic-rate-disabled.png');
+      }
+      &.hover {
+        background-image: url('../../../../../../assets/img/main/ic-rate-hover.png');
+      }
+      &.cp{
+        cursor: pointer;
+      }
+    }
+  }
+}

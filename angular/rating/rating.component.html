@@ -1,0 +1,9 @@
+<ul class="rating">
+  <li *ngFor="let rate of dataList; let i = index;"
+      (mouseover)="onHover(i)"
+      (mouseleave)="onLeave()"
+      (click)="onClick(i)"><i class="icon-rate"
+                              [class.big]="size === 'big'"
+                              [class.cp]="!disabled"
+                              [ngClass]="statusClass(rate.status)"></i></li>
+</ul>
