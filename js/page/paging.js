@@ -109,7 +109,7 @@
 			});
 		},
 		format: function() {
-			var html = '<ul>'
+			var html = '<ul>';
 			html += '<li class="js-page-first js-page-action ui-first" >' + this.settings.firstTpl + '</li>';
 			html += '<li class="js-page-prev js-page-action ui-prev">' + this.settings.prevTpl + '</li>';
 			if (this.pagecount > 6) {
@@ -151,20 +151,35 @@
 			}
 			this.container.find('li[data-page="' + this.current + '"]').addClass('focus').siblings().removeClass('focus');
 			if (this.settings.toolbar) {
+				this.container.find('> ul').prepend('<li class="page-size"><div><span>'+ this.settings.pagesize +'</span></div>每页</li>');
 				this.bindToolbar();
 			}
 		},
 		bindToolbar: function() {
 			var _this = this;
-			var html = $('<li class="ui-paging-toolbar"><select class="ui-select-pagesize"></select>共 '+this.pagecount+' 页，到第<input type="number" class="ui-paging-count"/>&nbsp;页<a href="javascript:void(0)">确定</a></li>');
-			var sel = $('.ui-select-pagesize', html);
-			var str = '';
+			var html = $('<li class="ui-paging-toolbar">共 '+this.pagecount+' 页，到第<input type="number" class="ui-paging-count"/>&nbsp;页<a href="javascript:void(0)">确定</a></li>');
+			var sel = $('.page-size');
+			var str = '<div class="option-list">';
 			for (var i = 0, l = this.settings.pageSizeList.length; i < l; i++) {
-				str += '<option value="' + this.settings.pageSizeList[i] + '">' + this.settings.pageSizeList[i] + '条/页</option>';
+				str += '<p>' + this.settings.pageSizeList[i] + '</p>';
 			}
-			sel.html(str);
-			sel.val(this.pagesize);
-			$('input', html).val(this.current);
+			sel.find('> div').append(str + '</div>');
+			sel.find('span').text(this.pagesize);
+            sel.find('span').on('click', function (e) {
+            	e.stopImmediatePropagation();
+                var $this = $(this);
+                $this.siblings().fadeIn();
+                $(document).one('click',function(){
+                    $('.page-size .option-list').fadeOut();
+                });
+            });
+            sel.find('p').on('click', function () {
+                var $this = $(this);
+                _this.changePagesize($this.text());
+                $this.parent().fadeOut();
+                _this.settings.callback && _this.settings.callback(_this.current, _this.pagesize, _this.pagecount);
+            });
+            $('input', html).val(this.current);
 			$('input', html).click(function() {
 				$(this).select();
 			}).keydown(function(e) {
@@ -176,10 +191,6 @@
 			$('a', html).click(function() {
 				var current = parseInt($(this).prev().val()) || 1;
 				_this.go(current);
-			});
-			sel.change(function() {
-				_this.changePagesize($(this).val());
-                _this.go();
 			});
 			this.container.children('ul').append(html);
 		}
