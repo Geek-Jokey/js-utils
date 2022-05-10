@@ -1,0 +1,31 @@
+Arguments: 
+  D:\Install\nodejs\node.exe C:\Users\lzp\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Install\nodejs\;D:\install\Git\cmd;D:\install\java\jdk1.8.0_152\bin;D:\install\java\jre\bin;D:\install\apache-maven-3.6.3\bin;D:\install\mysql-5.7.34-winx64\bin;D:\install\redis\;D:\install\xftp7\;D:\install\Xshell 7\;C:\Program Files\dotnet\;D:\install\Python27\Scripts\;D:\install\Python27\;D:\install\Python3\Scripts\;D:\install\Python3\;C:\Users\lzp\AppData\Local\Microsoft\WindowsApps;D:\Install\Microsoft VS Code\bin;C:\Users\lzp\AppData\Roaming\npm;D:\install\IntelliJ IDEA 2021.1.1\bin;;
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.16.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\code\self-workspace\js-utils\package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at C:\Users\lzp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\lzp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\lzp\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

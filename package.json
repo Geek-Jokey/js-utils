@@ -1,0 +1,12 @@
+{
+  "name": "js-utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Geek-Jokey/js-utils.git",
+  "author": "Geek-Jokey",
+  "license": "MIT",
+  "dependencies": {
+    "json2csv": "^5.0.7",
+    "moment": "^2.29.3"
+  }
+}
